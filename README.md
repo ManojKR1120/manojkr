@@ -1,6 +1,27 @@
 #include <stdio.h>
 #include <math.h>
 #include<stdbool.h>
+
+bool is_prime(int num)
+ {
+    if (num <= 1) {
+        return false;
+    }
+    for (int i = 2; i <= sqrt(num); ++i) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+int fibonacci(int num)
+ {
+    if (num == 0 || num == 1) {
+        return num;
+    } else {
+        return fibonacci(num - 1) + fibonacci(num - 2);
+    }
+}
 int main()
  {
     int terms;
@@ -17,13 +38,5 @@ printf("\n");
 
     for (int n = 0; n < terms; ++n) {
         printf("%d ", fibonacci(n));
-    }
-}
-int fibonacci(int num)
-{
-    if (num == 0 || num == 1) {
-        return num;
-    } else {
-        return fibonacci(num - 1) + fibonacci(num - 2);
     }
 }
